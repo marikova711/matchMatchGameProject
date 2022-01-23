@@ -1,0 +1,29 @@
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    margin-bottom: 40px;
+    color: rgb(93, 43, 211);
+    font-family: 'Mochiy Pop P One', sans-serif;
+}
+
+.item {
+    margin-bottom: 40px;
+    color: #fff;
+    font-family: 'Mochiy Pop P One', sans-serif;
+}
+
+.item:hover {
+    text-shadow: 0 0 20px rgb(128, 128, 128);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.item:last-of-type {
+    margin-bottom: 60px;
+}

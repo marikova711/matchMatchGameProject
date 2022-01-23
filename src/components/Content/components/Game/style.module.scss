@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+}
+
+.score {
+    display: flex;
+}
+
+.scoreItem {
+    color: #fff;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    margin-right: 130px;
+}
+
+.scoreItem:last-of-type {
+    margin-right: 0;
+}
+
+.cardGrid {
+    flex-grow: 1;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1px;
+    align-content: center;
+}

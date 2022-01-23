@@ -1,0 +1,17 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-right: 100px;
+    color: #fff;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    max-width: 500px;
+}
+
+.title {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.rules {
+    text-align: justify;
+}
