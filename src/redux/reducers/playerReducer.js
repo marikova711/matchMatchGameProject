@@ -6,9 +6,7 @@ const initialState = {
 function playerReducer (state = initialState, action) {
     switch(action.type) {
         case 'ADD_PLAYER': 
-            if (state.allPlayers.includes(action.payload)) {
-                return state
-            } else return {
+            return {
                 ...state,
                 allPlayers: [...state.allPlayers, action.payload]
             }

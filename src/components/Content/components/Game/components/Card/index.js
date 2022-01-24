@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from './style.module.scss';
-import FaceDown from 'images/facedown.jpg';
+import { useSelector } from 'react-redux';
 
 const Card = ({ card, handleChoice, flipped, disabled }) => {
+    const currentCardBack = useSelector(state => state.cards.currentCardBack)
 
     const handleClick = () => {
         if (!disabled) {
@@ -10,12 +11,12 @@ const Card = ({ card, handleChoice, flipped, disabled }) => {
         }
     }
     return (
-        <div className={styles.card}>
+        <div className={[styles.card, card.isMatched ? styles.isMatched : ''].join(' ')}>
             <div className={flipped ? styles.flipped : ''}>
                 <img className={styles.front} src={card.src}/>
                 <img 
                     className={styles.back}
-                    src={FaceDown} 
+                    src={currentCardBack} 
                     onClick={handleClick}
                 />
             </div>

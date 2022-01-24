@@ -16,3 +16,9 @@ export function chooseHardLevel(){
     }
   }
 
+  export function setCurrentCardBack(cardback){
+    return {
+      type: 'SET_CURRENT_CARDBACK',
+      payload: cardback
+    }
+  }

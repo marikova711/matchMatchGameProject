@@ -12,10 +12,16 @@
     border-radius: 6px;
 }
 
+.isMatched {
+    transition: opacity 1.5s ease-in;
+    opacity: 0;
+}
+
 .card .front {
     transform: rotateY(90deg);
     transition: all ease-in 0.2s;
     position: absolute;
+    background: rgb(17, 12, 58);
 }
 
 .flipped .front {

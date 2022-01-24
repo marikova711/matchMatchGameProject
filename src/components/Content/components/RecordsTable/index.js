@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './style.module.scss';
 import { useSelector } from 'react-redux';
 import RecordItem from './components/RecordItem';
@@ -16,10 +16,15 @@ const RecordsTable = () => {
 
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>Top 10 best results</h1>
+            <h2 className={styles.title}>Top 10 best results</h2>
+            <div className={styles.itemTitle}>
+                <h3>Player</h3>
+                <h3>Time</h3>
+            </div>
             <div className={styles.table}>
-                {bestResults.map(item => (
-                    <RecordItem 
+                {bestResults.map((item, i) => (
+                    <RecordItem
+                        key={i} 
                         item={item}
                     />
                 ))}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './style.module.scss';
 import Game from './components/Game';
 import ProfileForm from './components/ProfileForm';
@@ -6,7 +6,7 @@ import Home from './components/Home';
 import Settings from './components/Settings';
 import Greeting from './components/Greeting';
 import RecordsTable from './components/RecordsTable';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const Content = () => {
     const windows = useSelector(state => state.windows)

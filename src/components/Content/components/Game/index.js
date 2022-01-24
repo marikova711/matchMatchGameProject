@@ -5,6 +5,7 @@ import Button from 'components/Forms/Button';
 import { addRecord, sortRecord } from 'redux_main/actions/records';
 import { setHomeWindow } from 'redux_main/actions/windows';
 import { useDispatch, useSelector } from 'react-redux';
+import ModalWindow from './components/ModalWindow';
 
 const Game = () => {
 
@@ -14,10 +15,11 @@ const Game = () => {
     const [choiceTwo, setChoiceTwo] = useState(null);
     const [disabled, setDisabled] = useState(false);
     const [timer, setTimer] = useState({ seconds: 0, minutes: 0 });
-    const [timerIsActive, setTimerIsActive] = useState(false)
+    const [timerIsActive, setTimerIsActive] = useState(false);
+    const [isShow, setIsShow] = useState(false);
     const dispatch = useDispatch();
-    const cardImages = useSelector(state => state.cards.cardImages)
-    const currentPlayer = useSelector(state => state.players.currentPlayer)
+    const cardImages = useSelector(state => state.cards.cardImages);
+    const currentPlayer = useSelector(state => state.players.currentPlayer);
 
     useEffect(() => {
         shuffleCards()
@@ -51,7 +53,7 @@ const Game = () => {
             setTimerIsActive(false)
             dispatch(addRecord({...timer, currentPlayer}))
             dispatch(sortRecord())
-            setTimeout(() => dispatch(setHomeWindow()), 1000)
+            setTimeout(() => setIsShow(true), 1000)
         }
     }, [cards])
 
@@ -94,10 +96,17 @@ const Game = () => {
         dispatch(setHomeWindow())
     }
 
+    const handleModalClose = () => {
+        setIsShow(false)
+        onClickHomeHandler()
+    }
+
     return (
         <div className={styles.container}>
+            <div className={styles.buttons}>
             <Button onClick={shuffleCards}>New game</Button>
             <Button onClick={onClickHomeHandler}>Back</Button>
+            </div>
             <div className={styles.cardGrid}>
                 {cards.map(card => (
                     <Card 
@@ -113,6 +122,7 @@ const Game = () => {
                 <p className={styles.scoreItem}>Turns: {turns}</p>
                 <p className={styles.scoreItem}>Time: {timer.minutes} : {timer.seconds}</p>
             </div>
+            <ModalWindow isShow={isShow} handleModalClose={handleModalClose} timer={timer}/>
         </div>
     )
 }

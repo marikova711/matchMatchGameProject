@@ -16,7 +16,7 @@ function recordsReducer (state = initialState, action) {
                     return -1
                 }
             })
-            return newState.slice(0, 11);
+            return newState.slice(0, 10);
         default:
             return state;
     }
